@@ -1,0 +1,30 @@
+{
+  "parser": "@typescript-eslint/parser", // TypeScript 구문 분석기
+
+  //# npm run lint 실행 안되서 우선 주석처리
+  /* "parserOptions": {
+    "project": "./tsconfig.json", // tsconfig.json 파일 경로
+    "tsconfigRootDir": "./" // tsconfig.json의 루트 디렉토리
+  }, */
+
+  "extends": [
+    "airbnb", // Airbnb 스타일 가이드
+    "airbnb/hooks", // React Hooks에 대한 Airbnb 스타일
+    "airbnb-typescript/base", // TypeScript에 대한 Airbnb 스타일 / base를 추가하여 기본설정만 가져오도록 함
+    "next/core-web-vitals", // Next.js의 Core Web Vitals 규칙
+    "prettier" // Prettier와의 충돌 방지
+    // "@typescript-eslint/parser"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"], // 사용되는 플러그인
+  "rules": {
+    "prettier/prettier": "error", // Prettier 규칙 위반 시 오류 발생
+    "react/react-in-jsx-scope": "off", // Next.js에서는 React를 자동으로 가져옴
+    "import/prefer-default-export": "off", // 단일 내보내기 허용
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }] // 사용하지 않는 변수 경고
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // React 버전을 자동으로 감지
+    }
+  }
+}
