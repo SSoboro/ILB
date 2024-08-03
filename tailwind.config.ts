@@ -72,7 +72,8 @@ const config = {
                 default: '355px',
                 lg: '293px',
                 sm: '101px',
-                select: '95',
+                select: '95px',
+                screen: '375px',
             },
             height: {
                 default: '60px',
