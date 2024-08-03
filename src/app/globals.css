@@ -11,7 +11,6 @@
         --primary-foreground: #ffc2c5;
         --input-placeholder: #cdc5c5;
         --txt: #201b1b;
-        --radius: 44px;
         --txt-foreground: #7d7676;
         --chart-1: #9bd9a8;
         --chart-2: #ff8087;
@@ -53,8 +52,14 @@
     *::after {
         @apply border-border box-border;
     }
+
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-txt my-0 mx-auto;
+        max-width: 375px;
+    }
+
+    section {
+        @apply py-0 px-5;
     }
 }
 
