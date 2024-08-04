@@ -1,0 +1,16 @@
+import bannerImg from '@/assets/banner_2.jpg';
+import Image from 'next/image';
+
+export default function ProductBannerIntro() {
+    return (
+        <section className='relative px-0'>
+            <h2 className='absolute top-[70px] px-5 text-3xl font-bold'>
+                우리 아이에게만
+            </h2>
+            <p className='absolute top-[110px] px-5 text-2xl'>
+                집중할 수 있도록
+            </p>
+            <Image src={bannerImg} alt='intro image' />
+        </section>
+    );
+}
