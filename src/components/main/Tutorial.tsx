@@ -2,14 +2,14 @@ import { Button } from '../ui/button';
 
 export default function Tutorial() {
     return (
-        <div className='py-[62px] px-[20px] flex flex-col items-center gap-[60px]'>
+        <section className='py-[62px] flex flex-col items-center gap-[60px]'>
             <div className='w-full'>
-                <p className='text-2xl font-bold'>이곳은</p>
-                <p className='text-xl'>구독 방법을 알려드립니다</p>
+                <p className='text-3xl font-bold'>이곳은</p>
+                <p className='text-2xl'>구독 방법을 알려드립니다</p>
             </div>
             <div className='relative self-start flex flex-col gap-[61px]'>
-                <div className='z-[-1] absolute top-[20px] left-[14px] h-[230px] w-[1px] border-l-2 border-dashed	 border-[#7DC8AA]'></div>
-                <div className='flex gap-[10px] items-center'>
+                <div className='z-[-1] absolute top-5 left-3.5 h-[230px] w-[1px] border-l-2 border-dashed	 border-[#7DC8AA]'></div>
+                <div className='flex gap-2.5 items-center'>
                     <div className='w-[30px] h-[30px] rounded-full bg-[#7DC8AA] flex justify-center items-center text-white text-sm'>
                         1
                     </div>
@@ -50,6 +50,6 @@ export default function Tutorial() {
                 fontSize={'lg'}>
                 구독하러가기
             </Button>
-        </div>
+        </section>
     );
 }
