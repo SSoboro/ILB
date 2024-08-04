@@ -27,46 +27,19 @@ const config = {
                     DEFAULT: 'var(--primary)',
                     foreground: 'var(--primary-foreground)',
                 },
-                // secondary: {
-                //   DEFAULT: "hsl(var(--secondary))",
-                //   foreground: "hsl(var(--secondary-foreground))",
-                // },
-                // destructive: {
-                //   DEFAULT: "hsl(var(--destructive))",
-                //   foreground: "hsl(var(--destructive-foreground))",
-                // },
-                // muted: {
-                //   DEFAULT: "hsl(var(--muted))",
-                //   foreground: "hsl(var(--muted-foreground))",
-                // },
-                // accent: {
-                //   DEFAULT: "hsl(var(--accent))",
-                //   foreground: "hsl(var(--accent-foreground))",
-                // },
-                // popover: {
-                //   DEFAULT: "hsl(var(--popover))",
-                //   foreground: "hsl(var(--popover-foreground))",
-                // },
                 card: {
                     DEFAULT: 'var(--card)',
-                    // foreground: "hsl(var(--card-foreground))",
                 },
                 txt: {
                     DEFAULT: 'var(--txt)',
                     foreground: 'var(--txt-foreground)',
                 },
-                chart: {
-                    1: 'var(--chart-1)',
-                    2: 'var(--chart-2)',
-                },
-                black: 'var(--black)',
-                white: 'var(--white)',
             },
             fontFamily: {
                 notoSansKr: ['var(--notoSansKr)'],
             },
-            text: {
-                lg: '32px',
+            fontSize: {
+                '10': '10px',
             },
             width: {
                 default: '355px',
@@ -77,10 +50,6 @@ const config = {
             },
             height: {
                 default: '60px',
-            },
-            padding: {
-                '19px': '19px',
-                '25px': '25px',
             },
             borderRadius: {
                 default: '44px',
