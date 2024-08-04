@@ -21,13 +21,13 @@ const buttonVariants = cva(
             },
             radius: {
                 default: 'rounded-default',
-                lg: 'rounded-lg',
-                md: 'rounded-md',
+                lg: 'rounded-full',
+                md: 'rounded-m',
                 sm: 'rounded-3xl',
             },
             fontSize: {
                 default: 'text-base',
-                lg: 'text-lg',
+                lg: 'text-[32px]',
                 sm: 'text-sm',
             },
             fontWeight: {
@@ -59,6 +59,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             size,
             fontSize,
             fontWeight,
+            radius,
             asChild = false,
             ...props
         },
@@ -73,6 +74,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                         size,
                         fontSize,
                         fontWeight,
+                        radius,
                         className,
                     }),
                 )}
