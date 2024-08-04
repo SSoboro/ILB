@@ -84,8 +84,8 @@ const config = {
             },
             borderRadius: {
                 default: '44px',
-                lg: '54px',
-                md: '30px',
+                full: '54px',
+                m: '30px',
                 select: '40px',
             },
             keyframes: {
