@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 
 export default function Header() {
     return (
-        <header className='fixed py-2.5 px-5 w-full top-0 bg-transparent z-10'>
+        <header className='fixed py-2.5 px-5 w-[375px] top-0 bg-transparent z-10'>
             <nav className='flex justify-between items-center'>
                 <Link href={'/'}>
                     <Image
