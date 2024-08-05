@@ -2,7 +2,7 @@ import { Button } from '../../components/ui/button';
 
 export default function ProductTutorial() {
     return (
-        <section className='py-[62px] flex flex-col items-center gap-[60px]'>
+        <article className='py-[62px] flex flex-col px-5 items-center gap-[60px]'>
             <div className='w-full'>
                 <p className='text-3xl font-bold'>이곳은</p>
                 <p className='text-2xl'>구독 방법을 알려드립니다</p>
@@ -50,6 +50,6 @@ export default function ProductTutorial() {
                 fontSize={'lg'}>
                 구독하러가기
             </Button>
-        </section>
+        </article>
     );
 }
