@@ -42,7 +42,7 @@ const config = {
                 '10': '10px',
             },
             width: {
-                default: '355px',
+                default: '335px',
                 lg: '293px',
                 sm: '101px',
                 select: '95px',

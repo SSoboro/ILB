@@ -52,8 +52,7 @@
     }
 
     body {
-        @apply bg-background text-txt my-0 mx-auto;
-        max-width: 375px;
+        @apply bg-background text-txt my-0 mx-auto max-w-[375px];
     }
 
     section {
