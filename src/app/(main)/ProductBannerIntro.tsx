@@ -1,4 +1,3 @@
-import bannerImg from '@/assets/banner_2.jpg';
 import Image from 'next/image';
 
 export default function ProductBannerIntro() {
@@ -10,7 +9,12 @@ export default function ProductBannerIntro() {
             <p className='absolute top-[110px] px-5 text-2xl'>
                 집중할 수 있도록
             </p>
-            <Image src={bannerImg} alt='intro image' />
+            <Image
+                src={'/banner_2.jpg'}
+                width={375}
+                height={753}
+                alt='intro image'
+            />
         </section>
     );
 }

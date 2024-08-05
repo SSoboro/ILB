@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import logo from '@/assets/logo_icon.svg';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -9,7 +8,7 @@ export default function Footer() {
                 className='-ml-2.5'
                 width={85}
                 height={85}
-                src={logo}
+                src={'/logo_icon.svg'}
                 alt=''
             />
             <div className='flex flex-col gap-[2px]'>

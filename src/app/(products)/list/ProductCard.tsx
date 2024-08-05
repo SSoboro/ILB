@@ -1,12 +1,13 @@
 import { ChevronDown } from 'lucide-react';
+
+import MonthAvatar from './MonthAvatar';
+import ProductItem from './ProductItem';
+import MonthCheck from './MonthCheck';
 import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '../ui/Accordion';
-import MonthAvatar from './MonthAvatar';
-import ProductItem from './ProductItem';
-import MonthCheck from './MonthCheck';
+} from '@/components/ui/Accordion';
 
 export default function ProductCard() {
     return (

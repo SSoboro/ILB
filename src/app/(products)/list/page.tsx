@@ -1,4 +1,4 @@
-import ProductList from '@/components/list/ProductList';
+import ProductList from './ProductList';
 
 export default function ListPage() {
     return (

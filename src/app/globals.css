@@ -57,7 +57,7 @@
     }
 
     section {
-        @apply py-0 px-5;
+        @apply py-0 px-5 mt-14;
     }
 }
 

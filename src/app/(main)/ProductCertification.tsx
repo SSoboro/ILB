@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import logo from '@/assets/logo_icon.svg';
 
 export default function ProductCertification() {
     return (
@@ -14,7 +13,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={70}
                         height={50}
-                        src={logo}
+                        src={'/logo_icon.svg'}
                         alt=''
                     />
                     <p className='font-bold'>원산지권리</p>
@@ -25,7 +24,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={70}
                         height={50}
-                        src={logo}
+                        src={'/logo_icon.svg'}
                         alt=''
                     />
                     <p className='font-bold'>도라에몽 주머니</p>
@@ -36,7 +35,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={70}
                         height={50}
-                        src={logo}
+                        src={'/logo_icon.svg'}
                         alt=''
                     />
                     <p className='font-bold'>Non-GMO</p>
@@ -47,7 +46,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={70}
                         height={50}
-                        src={logo}
+                        src={'/logo_icon.svg'}
                         alt=''
                     />
                     <p className='font-bold'>친환경 포장</p>
