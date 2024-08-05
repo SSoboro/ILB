@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import bannerImg from '@/assets/banner_1.jpg';
 
 export default function BannerItem() {
     return (
@@ -10,7 +9,12 @@ export default function BannerItem() {
             <p className='absolute px-10 top-[135px] text-2xl'>
                 오픈기념 특별할인
             </p>
-            <Image src={bannerImg} alt='banner image' />
+            <Image
+                src={'/banner_1.jpg'}
+                width={375}
+                height={753}
+                alt='banner image'
+            />
         </div>
     );
 }

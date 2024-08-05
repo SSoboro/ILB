@@ -1,17 +1,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import LogoIcon from '@/assets/logo_icon.svg';
 
 export default function Header() {
     return (
-        <header className='py-4'>
-            <nav className='flex justify-between'>
+        <header className='fixed py-2.5 px-5 w-full top-0 bg-transparent z-10'>
+            <nav className='flex justify-between items-center'>
                 <Link href={'/'}>
-                    <Image src={LogoIcon} alt='logo' />
+                    <Image
+                        src={'/logo_icon.svg'}
+                        alt='logo'
+                        width={36}
+                        height={36}
+                    />
                 </Link>
-                <button className='w-6 h-6'>
-                    <RxHamburgerMenu className='mx-auto w-5 h-5 text-[#4C4646]' />
+                <button className='w-9 h-9'>
+                    <RxHamburgerMenu className='mx-auto w-7 h-7 text-[#4C4646]' />
                 </button>
             </nav>
         </header>
