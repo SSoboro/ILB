@@ -1,6 +1,6 @@
 import { Button } from '../ui/button';
 
-export default function Tutorial() {
+export default function ProductTutorial() {
     return (
         <section className='py-[62px] flex flex-col items-center gap-[60px]'>
             <div className='w-full'>
