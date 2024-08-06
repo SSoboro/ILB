@@ -9,7 +9,7 @@
         --card: #fafafa;
         --primary: #ff8087;
         --primary-foreground: #ffc2c5;
-        --input-placeholder: #cdc5c5;
+        --input-placeholder: #180909;
         --txt: #201b1b;
         --txt-foreground: #7d7676;
         --black: #000000;
@@ -45,14 +45,14 @@
 }
 
 @layer base {
+    body {
+        @apply bg-background text-txt my-0 mx-auto max-w-[375px];
+    }
+
     *,
     *::before,
     *::after {
         @apply border-border box-border;
-    }
-
-    body {
-        @apply bg-background text-txt my-0 mx-auto max-w-[375px];
     }
 
     section {
