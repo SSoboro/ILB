@@ -12,6 +12,7 @@ const buttonVariants = cva(
                 default: 'bg-primary text-white  -hover:bg-primary/50',
                 outline:
                     'border border-primary-foreground bg-background text-black box-border hover:bg-accent hover:text-accent-foreground',
+                checked: 'bg-primary-foreground text-black',
             },
             size: {
                 default: 'w-default h-default',
