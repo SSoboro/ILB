@@ -7,16 +7,16 @@ import BannerItem from './BannerItem';
 
 export default function Banner() {
     return (
-        <section className='px-0'>
+        <article>
             <Carousel>
                 <CarouselContent>
                     {Array.from({ length: 3 }).map((_, index) => (
-                        <CarouselItem key={index} className='pl-0'>
+                        <CarouselItem key={index}>
                             <BannerItem />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
             </Carousel>
-        </section>
+        </article>
     );
 }

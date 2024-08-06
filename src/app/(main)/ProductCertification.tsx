@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function ProductCertification() {
     return (
-        <section className='flex flex-col py-[62px]'>
+        <article className='bg-[#FFF9F3] flex flex-col px-5 py-[62px]'>
             <div className='mb-[42px]'>
                 <p className='text-3xl font-light mb-2'>아이들에게 이로운</p>
                 <p className='text-3xl font-light'>제품만을 엄선합니다</p>
@@ -53,6 +53,6 @@ export default function ProductCertification() {
                     <p className='text-sm'>지구를 생각하는 패키징</p>
                 </div>
             </div>
-        </section>
+        </article>
     );
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className='py-[62px] px-[15px] bg-foreground flex flex-col gap-[45px]'>
+        <footer className='py-[40px] px-[15px] bg-foreground flex flex-col gap-[45px]'>
             <Image
                 className='-ml-2.5'
                 width={85}
@@ -28,16 +28,12 @@ export default function Footer() {
             </div>
 
             <div className='flex flex-col items-start gap-[5px]'>
-                <Link
-                    className='text-sm font-bold text-txt-foreground'
-                    href={'#'}>
+                <div className='text-sm font-bold text-txt-foreground'>
                     서비스 이용약관
-                </Link>
-                <Link
-                    className='text-sm font-bold text-txt-foreground'
-                    href={'#'}>
+                </div>
+                <div className='text-sm font-bold text-txt-foreground'>
                     개인정보 처리방침
-                </Link>
+                </div>
             </div>
 
             <p className='text-sm text-txt-foreground'>

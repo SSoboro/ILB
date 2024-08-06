@@ -4,7 +4,9 @@ export default function Nav() {
     return (
         <nav className='flex flex-col'>
             <div className='py-[16px] px-[16px]  mb-[14px]'>
-                <p>소보로님,</p>
+                <p>
+                    <span className='font-bold'>소보로</span>님,
+                </p>
                 <p>소중한 우리 아이와 행복한 순간을 함께하세요!</p>
             </div>
             <Link className='py-[19px] px-[19px]' href='#'>

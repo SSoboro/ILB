@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function ProductBannerIntro() {
     return (
-        <section className='relative px-0'>
+        <article className='relative'>
             <h2 className='absolute top-[70px] px-5 text-3xl font-bold'>
                 우리 아이에게만
             </h2>
@@ -15,6 +15,6 @@ export default function ProductBannerIntro() {
                 height={753}
                 alt='intro image'
             />
-        </section>
+        </article>
     );
 }
