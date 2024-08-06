@@ -35,7 +35,6 @@ const convertedChartData = chartData.map(data => ({
     weight: Math.log(data.weight + 1) * 100,
 }));
 
-console.log(convertedChartData);
 const chartConfig = {
     height: {
         label: '키',
