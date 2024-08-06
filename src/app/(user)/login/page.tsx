@@ -14,10 +14,11 @@ import { Toaster } from '@/components/ui/toaster';
 import { toast } from '@/components/ui/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-//& 수정 필요 (zod)
+//& 수정 필요 (zod) : destructive 글로벌 css 넣어주면 됨
 const FormSchema = z.object({
     email: z.string().min(2, {
         message: '올바른 이메일 형식이 아닙니다.',
@@ -52,26 +53,28 @@ export default function Login() {
     }
 
     return (
-        <div>
+        <section>
             <Image
-                src='/vercel.svg'
-                alt='카카오톡 로그인'
-                width={40}
-                height={40}
+                src={'/logo_M.svg'}
+                alt='ILB'
+                width={60}
+                height={60}
+                className='mb-2 mx-auto'
             />
+            <h1 className='text-center mb-[34px] font-bold'>로그인</h1>
             <Form {...form}>
-                <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className='w-full space-y-6 p-4'>
+                <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
                     <FormField
                         control={form.control}
                         name='email'
                         render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>이메일</FormLabel>
+                            <FormItem className='mb-8'>
+                                <FormLabel className='text-txt-foreground'>
+                                    이메일
+                                </FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='border-0 border-b-[1px] rounded-none p-1'
+                                        className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
                                         type='email'
                                         placeholder='이메일을 입력해주세요'
                                         {...field}
@@ -86,10 +89,12 @@ export default function Login() {
                         name='password'
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>비밀번호</FormLabel>
+                                <FormLabel className='text-txt-foreground'>
+                                    비밀번호
+                                </FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='border-0 border-b-[1px] rounded-none p-1 w-[350px]'
+                                        className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
                                         type='password'
                                         placeholder='비밀번호를 입력해주세요'
                                         {...field}
@@ -99,32 +104,54 @@ export default function Login() {
                             </FormItem>
                         )}
                     />
-                    <Button type='submit'>로그인</Button>
+                    <Button
+                        type='submit'
+                        className='font-notoSansKr mt-[60px] box-border'
+                        variant={'default'}>
+                        로그인
+                    </Button>
                 </form>
             </Form>
-            <hr />
-            <p className=''>소셜 로그인</p>
-            <div className='flex justify-between px-10'>
-                <Image
-                    src='/vercel.svg'
-                    alt='카카오톡 로그인'
-                    width={40}
-                    height={40}
-                />
-                <Image
-                    src='/vercel.svg'
-                    alt='네이버 로그인'
-                    width={40}
-                    height={40}
-                />
-                <Image
-                    src='/vercel.svg'
-                    alt='구글 로그인'
-                    width={40}
-                    height={40}
-                />
+            <p className='text-txt-foreground text-center mt-[18px] text-xs'>
+                아직 회원이 아니신가요?{' '}
+                <Link href={'/'} className='text-txt font-normal'>
+                    회원가입
+                </Link>
+            </p>
+            <div className='flex items-center mb-10 mt-[60px]'>
+                <p className='flex grow h-[1px] bg-txt-foreground' />
+                <span className='px-[13px] text-xs font-light text-txt-foreground'>
+                    소셜 로그인
+                </span>
+                <p className='flex grow h-[1px] bg-txt-foreground' />
+            </div>
+            <div className='flex justify-between px-6'>
+                <Link href={'/'}>
+                    <Image
+                        src='/icon/icon_kakao.svg'
+                        alt='카카오톡 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Link>
+                <Link href={'/'}>
+                    <Image
+                        src='/icon/icon_naver.svg'
+                        alt='네이버 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Link>
+                <Link href={'/'}>
+                    <Image
+                        src='/icon/icon_google.svg'
+                        alt='구글 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Link>
             </div>
             <Toaster />
-        </div>
+        </section>
     );
 }
