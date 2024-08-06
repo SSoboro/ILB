@@ -1,7 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 
 import MonthAvatar from './MonthAvatar';
-import ProductItem from './ProductItem';
+import ProductItem from '@/components/ProductItem';
 import MonthCheck from './MonthCheck';
 import {
     AccordionContent,
