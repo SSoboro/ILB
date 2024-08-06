@@ -3,10 +3,11 @@ import { Button } from '../../components/ui/button';
 export default function ProductTutorial() {
     return (
         <article className='py-[62px] flex flex-col px-5 items-center gap-[60px]'>
-            <div className='w-full'>
-                <p className='text-3xl font-bold'>이곳은</p>
-                <p className='text-2xl'>구독 방법을 알려드립니다</p>
-            </div>
+            <h2 className='self-start text-2xl'>
+                <span className='text-3xl font-bold'>이곳은</span>
+                <br />
+                구독 방법을 알려드립니다
+            </h2>
             <div className='relative self-start flex flex-col gap-[61px]'>
                 <div className='z-[-1] absolute top-5 left-3.5 h-[230px] w-[1px] border-l-2 border-dashed	 border-[#7DC8AA]'></div>
                 <div className='flex gap-2.5 items-center'>

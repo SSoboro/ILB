@@ -4,16 +4,17 @@ import { Button } from '../../components/ui/button';
 export default function ProductIntro() {
     return (
         <article className='py-[62px] px-5 flex flex-col items-center gap-[60px]'>
-            <div className='w-full'>
-                <p className='text-3xl font-bold'>우리 아이를 위한</p>
-                <p className='text-2xl'>맞춤형 성장 패키지</p>
-            </div>
+            <h2 className='self-start text-2xl'>
+                <span className='text-3xl font-bold'>우리 아이를 위한</span>
+                <br />
+                맞춤형 성장 패키지
+            </h2>
             <Image
                 className='mx-auto'
                 src={'/mobileMockup.svg'}
                 width={190}
                 height={384}
-                alt=''
+                alt='moble sample image'
             />
             <Button
                 variant={'default'}
