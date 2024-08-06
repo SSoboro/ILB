@@ -19,8 +19,13 @@ export default function BabyName() {
             <p className='text-lg text-center font-medium mt-5 mb-[105px]'>
                 아이의 닉네임을 입력해주세요
             </p>
-            <Label className='text-base text-txt-foreground'>아이 닉네임</Label>
+            <Label
+                htmlFor='babyNickname'
+                className='text-base text-txt-foreground'>
+                아이 닉네임
+            </Label>
             <Input
+                id='babyNickname'
                 className='border-0 border-b-[1px] rounded-none p-[5px] text-xl border-txt-foreground mr-28 mt-6 placeholder:text-sm'
                 type='text'
                 placeholder='닉네임을 입력해주세요'

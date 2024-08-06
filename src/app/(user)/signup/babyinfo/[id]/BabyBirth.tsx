@@ -16,8 +16,11 @@ export default function BabyBirth() {
             <h1 className='text-lg text-center font-medium mb-[105px]'>
                 아이의 생일을 알려주세요!
             </h1>
-            <Label className='text-base'>생년월일</Label>
+            <Label htmlFor='babyBirthday' className='text-base'>
+                생년월일
+            </Label>
             <Input
+                id='babyBirthday'
                 className='text-xl placeholder:text-sm border-0 border-b-[1px] rounded-none p-[5px] sborder-txt-foreground mr-28 mt-6'
                 type='text'
                 placeholder='20240407'

@@ -120,12 +120,15 @@ export default function DeliveryInfo() {
                             name='phone'
                             render={({ field }) => (
                                 <FormItem className='mb-6'>
-                                    <FormLabel className='text-txt-foreground'>
+                                    <FormLabel
+                                        htmlFor='address'
+                                        className='text-txt-foreground'>
                                         주소
                                     </FormLabel>
                                     <FormControl className='flex'>
                                         <div className='relative'>
                                             <Input
+                                                id='address'
                                                 className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
                                                 type='password'
                                                 {...field}
@@ -149,6 +152,9 @@ export default function DeliveryInfo() {
                             name='certificationCode'
                             render={({ field }) => (
                                 <FormItem>
+                                    <FormLabel className='sr-only'>
+                                        상세 주소
+                                    </FormLabel>
                                     <FormControl>
                                         <Input
                                             className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
