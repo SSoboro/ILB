@@ -1,9 +1,20 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 import { CiCreditCard1 } from 'react-icons/ci';
 import { CiBank } from 'react-icons/ci';
 
+type ItemSelect = 'card' | 'account';
+
 export default function PaymentPage() {
+    const [selectChecked, setSelectChecked] = useState<ItemSelect>('card');
+
+    const handleButtonCheck = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const target = event.currentTarget as HTMLButtonElement;
+        setSelectChecked(target.id as ItemSelect);
+    };
     return (
         <section>
             <h1 className='mt-7 font-bold text-[28px]'>결제정보</h1>
@@ -26,27 +37,29 @@ export default function PaymentPage() {
                     <p className='text-lg font-bold'>50,0000원</p>
                 </div>
             </div>
-            <div className='mt-10 left-0 absolute w-[375px] bg-[#F7EFEF] h-[16px]'></div>
+            <div className='mt-10 -left-5 relative w-[375px] bg-[#F7EFEF] h-[16px]'></div>
 
-            <h2 className='mt-[84px] font-bold text-[28px]'>결제수단 선택</h2>
+            <h2 className='mt-[28px] font-bold text-[28px]'>결제수단 선택</h2>
             <div className='flex justify-between mt-10'>
                 <Button
-                    variant={'outline'}
+                    id='card'
+                    onClick={handleButtonCheck}
+                    variant={`${selectChecked === 'card' ? 'checked' : 'outline'}`}
                     size={'md'}
-                    fontWeight={'sm'}
                     fontSize={'sm'}
-                    radius={'md'}
-                    className='justify-between p-[26px]'>
+                    fontWeight={'sm'}
+                    radius={'md'}>
                     <CiCreditCard1 className='w-[52px] h-[52px]' />
                     카드
                 </Button>
                 <Button
-                    variant={'outline'}
+                    id='account'
+                    onClick={handleButtonCheck}
+                    variant={`${selectChecked === 'account' ? 'checked' : 'outline'}`}
                     size={'md'}
-                    fontWeight={'sm'}
                     fontSize={'sm'}
-                    radius={'md'}
-                    className='justify-between p-[26px]'>
+                    fontWeight={'sm'}
+                    radius={'md'}>
                     <CiBank className='w-[52px] h-[52px]' />
                     계좌
                 </Button>
