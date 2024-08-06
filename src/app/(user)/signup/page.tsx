@@ -56,13 +56,11 @@ export default function Signup() {
     //& 수정 필요 (toast)
     function onSubmit(data: z.infer<typeof FormSchema>) {
         toast({
-            title: `로그인 성공!
-					반갑습니다 000님`,
+            //   title: `로그인 성공!
+            // 반갑습니다 000님`,
             description: (
-                <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-                    <code className='text-white'>
-                        {JSON.stringify(data, null, 2)}
-                    </code>
+                <pre className='mt-2 w-[340px] rounded-md bg-primary p-4'>
+                    반갑다능
                 </pre>
             ),
         });
@@ -164,24 +162,25 @@ export default function Signup() {
                         control={form.control}
                         name='phone'
                         render={({ field }) => (
-                            <FormItem className='mb-8'>
+                            <FormItem className='mb-6'>
                                 <FormLabel className='text-txt-foreground'>
                                     휴대폰 번호
                                 </FormLabel>
-                                <FormControl>
-                                    <div className='flex justify-between'>
+                                <FormControl className='flex'>
+                                    <div className='relative'>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-4'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
                                             type='password'
                                             placeholder='휴대폰 번호를 입력해주세요'
                                             {...field}
                                         />
                                         <Button
                                             type='submit'
-                                            className='font-notoSansKr box-border'
-                                            variant={'default'}
-                                            size={'md'}>
-                                            인증번호 받기
+                                            className='font-notoSansKr absolute right-0 bottom-[0.0625rem]'
+                                            size={'sm'}
+                                            fontSize={'sm'}
+                                            fontWeight={'sm'}>
+                                            인증번호 요청
                                         </Button>
                                     </div>
                                 </FormControl>
@@ -193,10 +192,7 @@ export default function Signup() {
                         control={form.control}
                         name='certificationCode'
                         render={({ field }) => (
-                            <FormItem className='mb-8'>
-                                <FormLabel className='text-txt-foreground'>
-                                    인증번호
-                                </FormLabel>
+                            <FormItem>
                                 <FormControl>
                                     <Input
                                         className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
@@ -211,51 +207,12 @@ export default function Signup() {
                     />
                     <Button
                         type='submit'
-                        className='font-notoSansKr mt-[60px] box-border'
+                        className='font-notoSansKr my-[60px] box-border'
                         variant={'default'}>
                         로그인
                     </Button>
                 </form>
             </Form>
-            <p className='text-txt-foreground text-center mt-[18px] text-xs'>
-                아직 회원이 아니신가요?{' '}
-                <Link href={'/'} className='text-txt font-normal'>
-                    회원가입
-                </Link>
-            </p>
-            <div className='flex items-center mb-10 mt-[60px]'>
-                <p className='flex grow h-[1px] bg-txt-foreground' />
-                <span className='px-[13px] text-xs font-light text-txt-foreground'>
-                    소셜 로그인
-                </span>
-                <p className='flex grow h-[1px] bg-txt-foreground' />
-            </div>
-            <div className='flex justify-between px-6'>
-                <Link href={'/'}>
-                    <Image
-                        src='/icon/icon_kakao.svg'
-                        alt='카카오톡 로그인'
-                        width={60}
-                        height={60}
-                    />
-                </Link>
-                <Link href={'/'}>
-                    <Image
-                        src='/icon/icon_naver.svg'
-                        alt='네이버 로그인'
-                        width={60}
-                        height={60}
-                    />
-                </Link>
-                <Link href={'/'}>
-                    <Image
-                        src='/icon/icon_google.svg'
-                        alt='구글 로그인'
-                        width={60}
-                        height={60}
-                    />
-                </Link>
-            </div>
             <Toaster />
         </section>
     );
