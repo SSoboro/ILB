@@ -75,7 +75,9 @@ export default function Signup() {
                     height={60}
                     className='mb-2 mx-auto'
                 />
-                <h1 className='text-center mb-[34px] font-bold'>회원가입</h1>
+                <h1 className='text-center mb-[34px] font-bold'>
+                    내 정보 수정
+                </h1>
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
@@ -162,44 +164,17 @@ export default function Signup() {
                         />
                         <FormField
                             control={form.control}
-                            name='phone'
+                            name='passwordCheck'
                             render={({ field }) => (
-                                <FormItem className='mb-6'>
+                                <FormItem className='mb-8'>
                                     <FormLabel className='text-txt-foreground'>
                                         휴대폰 번호
                                     </FormLabel>
-                                    <FormControl className='flex'>
-                                        <div className='relative'>
-                                            <Input
-                                                className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
-                                                type='password'
-                                                placeholder='휴대폰 번호를 입력해주세요'
-                                                {...field}
-                                            />
-                                            <Button
-                                                type='submit'
-                                                className='font-notoSansKr absolute right-0 bottom-[0.0625rem]'
-                                                size={'sm'}
-                                                fontSize={'sm'}
-                                                fontWeight={'sm'}>
-                                                인증번호 요청
-                                            </Button>
-                                        </div>
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name='certificationCode'
-                            render={({ field }) => (
-                                <FormItem>
                                     <FormControl>
                                         <Input
                                             className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
-                                            type='password'
-                                            placeholder='인증번호를 입력해주세요'
+                                            type='text'
+                                            placeholder='휴대폰 번호를 입력해주세요'
                                             {...field}
                                         />
                                     </FormControl>
@@ -207,11 +182,12 @@ export default function Signup() {
                                 </FormItem>
                             )}
                         />
+
                         <Button
                             type='submit'
-                            className='font-notoSansKr my-[60px] box-border'
+                            className='font-notoSansKr mt-[60px] box-border'
                             variant={'default'}>
-                            다음
+                            수정하기
                         </Button>
                     </form>
                 </Form>
