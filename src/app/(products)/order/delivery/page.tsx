@@ -39,7 +39,7 @@ const FormSchema = z.object({
     }),
 });
 
-export default function EditProfile() {
+export default function DeliveryInfo() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -68,15 +68,8 @@ export default function EditProfile() {
     return (
         <div>
             <section>
-                <Image
-                    src={'/logo_M.svg'}
-                    alt='ILB'
-                    width={60}
-                    height={60}
-                    className='mb-2 mx-auto'
-                />
-                <h1 className='text-center mb-[34px] font-bold'>
-                    내 정보 수정
+                <h1 className='text-center mb-10 font-bold text-[28px]'>
+                    배송정보를 입력하세요
                 </h1>
                 <Form {...form}>
                     <form
@@ -88,7 +81,7 @@ export default function EditProfile() {
                             render={({ field }) => (
                                 <FormItem className='mb-8'>
                                     <FormLabel className='text-txt-foreground'>
-                                        이름
+                                        받는 사람
                                     </FormLabel>
                                     <FormControl>
                                         <Input
@@ -108,7 +101,7 @@ export default function EditProfile() {
                             render={({ field }) => (
                                 <FormItem className='mb-8'>
                                     <FormLabel className='text-txt-foreground'>
-                                        이메일
+                                        연락처
                                     </FormLabel>
                                     <FormControl>
                                         <Input
@@ -124,19 +117,28 @@ export default function EditProfile() {
                         />
                         <FormField
                             control={form.control}
-                            name='password'
+                            name='phone'
                             render={({ field }) => (
-                                <FormItem className='mb-8'>
+                                <FormItem className='mb-6'>
                                     <FormLabel className='text-txt-foreground'>
-                                        비밀번호
+                                        주소
                                     </FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
-                                            type='password'
-                                            placeholder='비밀번호를 입력해주세요'
-                                            {...field}
-                                        />
+                                    <FormControl className='flex'>
+                                        <div className='relative'>
+                                            <Input
+                                                className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
+                                                type='password'
+                                                {...field}
+                                            />
+                                            <Button
+                                                type='submit'
+                                                className='font-notoSansKr absolute right-0 bottom-[0.0625rem]'
+                                                size={'sm'}
+                                                fontSize={'sm'}
+                                                fontWeight={'sm'}>
+                                                검색
+                                            </Button>
+                                        </div>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -144,17 +146,14 @@ export default function EditProfile() {
                         />
                         <FormField
                             control={form.control}
-                            name='passwordCheck'
+                            name='certificationCode'
                             render={({ field }) => (
-                                <FormItem className='mb-8'>
-                                    <FormLabel className='text-txt-foreground'>
-                                        비밀번호 확인
-                                    </FormLabel>
+                                <FormItem>
                                     <FormControl>
                                         <Input
                                             className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
                                             type='password'
-                                            placeholder='비밀번호를 한번 더 입력해주세요'
+                                            placeholder='상세 주소를 입력해주세요'
                                             {...field}
                                         />
                                     </FormControl>
@@ -162,30 +161,9 @@ export default function EditProfile() {
                                 </FormItem>
                             )}
                         />
-                        <FormField
-                            control={form.control}
-                            name='passwordCheck'
-                            render={({ field }) => (
-                                <FormItem className='mb-8'>
-                                    <FormLabel className='text-txt-foreground'>
-                                        휴대폰 번호
-                                    </FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
-                                            type='text'
-                                            placeholder='휴대폰 번호를 입력해주세요'
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-
                         <Button
                             type='submit'
-                            className='font-notoSansKr mt-[60px] box-border'
+                            className='font-notoSansKr mt-[133px]'
                             variant={'default'}>
                             수정하기
                         </Button>
