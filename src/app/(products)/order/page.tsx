@@ -1,6 +1,17 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+
+type ItemSelect = 'maintain' | 'chage';
 
 export default function OrderPage() {
+    const [selectChecked, setSelectChecked] = useState<ItemSelect>('maintain');
+
+    const handleButtonCheck = (event: React.MouseEvent<HTMLButtonElement>) => {
+        const target = event.currentTarget as HTMLButtonElement;
+        setSelectChecked(target.id as ItemSelect);
+    };
     return (
         <section>
             <h1 className='mt-7 font-bold text-[28px]'>
@@ -10,7 +21,9 @@ export default function OrderPage() {
             </h1>
             <div className='mt-[150px] flex justify-between'>
                 <Button
-                    variant={'outline'}
+                    id='maintain'
+                    onClick={handleButtonCheck}
+                    variant={`${selectChecked === 'maintain' ? 'checked' : 'outline'}`}
                     size={'md'}
                     fontSize={'sm'}
                     fontWeight={'sm'}
@@ -18,10 +31,12 @@ export default function OrderPage() {
                     네, 보내주세요
                 </Button>
                 <Button
-                    variant={'outline'}
+                    id='chage'
+                    onClick={handleButtonCheck}
+                    variant={`${selectChecked === 'chage' ? 'checked' : 'outline'}`}
                     size={'md'}
-                    fontWeight={'sm'}
                     fontSize={'sm'}
+                    fontWeight={'sm'}
                     radius={'md'}>
                     다른 개월수의 물품을
                     <br /> 받고 싶어요.
