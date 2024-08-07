@@ -42,7 +42,7 @@ export default function BabyBody() {
             </div>
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0 active:scale-95 transition-transform duration-150'
+                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
                 variant={'default'}>
                 다음
             </Button>
