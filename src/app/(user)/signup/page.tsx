@@ -165,12 +165,15 @@ export default function Signup() {
                             name='phone'
                             render={({ field }) => (
                                 <FormItem className='mb-6'>
-                                    <FormLabel className='text-txt-foreground'>
+                                    <FormLabel
+                                        htmlFor='phone'
+                                        className='text-txt-foreground'>
                                         휴대폰 번호
                                     </FormLabel>
                                     <FormControl className='flex'>
                                         <div className='relative'>
                                             <Input
+                                                id='phone'
                                                 className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
                                                 type='password'
                                                 placeholder='휴대폰 번호를 입력해주세요'
@@ -195,6 +198,9 @@ export default function Signup() {
                             name='certificationCode'
                             render={({ field }) => (
                                 <FormItem>
+                                    <FormLabel className='sr-only'>
+                                        휴대폰 인증 번호
+                                    </FormLabel>
                                     <FormControl>
                                         <Input
                                             className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'

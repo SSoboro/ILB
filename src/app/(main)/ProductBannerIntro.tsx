@@ -3,12 +3,11 @@ import Image from 'next/image';
 export default function ProductBannerIntro() {
     return (
         <article className='relative'>
-            <h2 className='absolute top-[70px] px-5 text-3xl font-bold'>
-                우리 아이에게만
-            </h2>
-            <p className='absolute top-[110px] px-5 text-2xl'>
+            <h2 className='absolute px-5 top-[70px] text-2xl'>
+                <span className='text-3xl font-bold'>우리 아이에게만</span>
+                <br />
                 집중할 수 있도록
-            </p>
+            </h2>
             <Image
                 src={'/banner_2.jpg'}
                 width={375}

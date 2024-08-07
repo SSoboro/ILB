@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className='py-[40px] px-[15px] bg-foreground flex flex-col gap-[45px]'>
+        <footer className='py-[40px] px-[15px] bg-[#EAF0EE] flex flex-col gap-[45px]'>
             <Image
                 className='-ml-2.5'
                 width={85}
                 height={85}
-                src={'/logo_icon.svg'}
+                src={'/logo_color.svg'}
                 alt=''
             />
             <div className='flex flex-col gap-[2px]'>
