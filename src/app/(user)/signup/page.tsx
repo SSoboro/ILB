@@ -82,13 +82,8 @@ export default function Signup() {
     //& 수정 필요 (toast)
     function onSubmit(data: z.infer<typeof FormSchema>) {
         toast({
-            //   title: `로그인 성공!
-            // 반갑습니다 000님`,
-            description: (
-                <pre className='mt-2 w-[340px] rounded-md bg-primary p-4'>
-                    반갑다능
-                </pre>
-            ),
+            title: `로그인 성공!
+            반갑습니다 000님`,
         });
     }
 
