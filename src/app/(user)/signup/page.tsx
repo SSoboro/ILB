@@ -117,7 +117,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='email'
                                             placeholder='이름을 입력해주세요'
                                             {...field}
@@ -137,7 +137,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='email'
                                             placeholder='이메일을 입력해주세요'
                                             {...field}
@@ -157,7 +157,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='password'
                                             placeholder='비밀번호를 입력해주세요'
                                             {...field}
@@ -177,7 +177,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='password'
                                             placeholder='비밀번호를 한번 더 입력해주세요'
                                             {...field}
@@ -201,8 +201,8 @@ export default function Signup() {
                                         <div className='relative'>
                                             <Input
                                                 id='phone'
-                                                className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
-                                                type='password'
+                                                className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground mr-28'
+                                                type='text'
                                                 placeholder='휴대폰 번호를 입력해주세요'
                                                 {...field}
                                             />
@@ -230,7 +230,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='password'
                                             placeholder='인증번호를 입력해주세요'
                                             {...field}
