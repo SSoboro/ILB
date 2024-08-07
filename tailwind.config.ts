@@ -23,6 +23,7 @@ const config = {
                 input: 'var(--input-placeholder)',
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
+                destructive: 'var(--destructive)',
                 primary: {
                     DEFAULT: 'var(--primary)',
                     foreground: 'var(--primary-foreground)',

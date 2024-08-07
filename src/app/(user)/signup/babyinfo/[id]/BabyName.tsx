@@ -26,13 +26,13 @@ export default function BabyName() {
             </Label>
             <Input
                 id='babyNickname'
-                className='border-0 border-b-[1px] rounded-none p-[5px] text-xl border-txt-foreground mr-28 mt-6 placeholder:text-sm'
+                className='border-0 border-b-[1px] rounded-none p-[5px] text-xl border-txt-foreground mr-28 mt-6'
                 type='text'
                 placeholder='닉네임을 입력해주세요'
             />
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0 active:scale-95 transition-transform duration-150'
+                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
                 variant={'default'}>
                 다음
             </Button>

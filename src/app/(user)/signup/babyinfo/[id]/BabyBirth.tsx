@@ -21,13 +21,13 @@ export default function BabyBirth() {
             </Label>
             <Input
                 id='babyBirthday'
-                className='text-xl placeholder:text-sm border-0 border-b-[1px] rounded-none p-[5px] sborder-txt-foreground mr-28 mt-6'
+                className='text-xl border-0 border-b-[1px] rounded-none p-[5px] sborder-txt-foreground mr-28 mt-6'
                 type='text'
                 placeholder='20240407'
             />
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0 active:scale-95 transition-transform duration-150'
+                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
                 variant={'default'}>
                 다음
             </Button>

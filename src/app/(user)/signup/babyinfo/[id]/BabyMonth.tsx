@@ -41,7 +41,7 @@ export default function BabyMonth() {
             <article className='grid grid-cols-2 gap-y-[30px] justify-center items-center gap-x-[43px] px-10'>
                 {dummyMonth.map((month, index) => (
                     <Button
-                        className={`text-txt mx-auto leading-5 h-11 hover:bg-primary-foreground active:scale-95 transition-transform duration-150 ${selectedIndex === index ? 'bg-primary-foreground' : ''}`}
+                        className={`text-txt mx-auto leading-5 h-11 hover:bg-primary-foreground ${selectedIndex === index ? 'bg-primary-foreground' : ''}`}
                         key={index}
                         type='button'
                         variant={'outline'}
@@ -55,7 +55,7 @@ export default function BabyMonth() {
             </article>
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0 active:scale-95 transition-transform duration-150'
+                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
                 variant={'default'}>
                 다음
             </Button>

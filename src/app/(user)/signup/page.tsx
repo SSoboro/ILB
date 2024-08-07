@@ -17,27 +17,54 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+//# 비밀번호 조건 정규표현식
+const passwordRegex =
+    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$&*?!%])[A-Za-z\d!@$%&*?]{8,15}$/;
+
 //& 수정 필요 (zod) : destructive 글로벌 css 넣어주면 됨
-const FormSchema = z.object({
-    name: z.string().min(2, {
-        message: '올바른 이메일 형식이 아닙니다.',
-    }),
-    email: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
-    password: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
-    passwordCheck: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
-    phone: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
-    certificationCode: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
-});
+const FormSchema = z
+    .object({
+        name: z
+            .string()
+            .min(2, { message: '2글자 이상 입력해 주세요.' })
+            .max(10, { message: '10글자 이하 입력해 주세요.' }),
+
+        email: z
+            .string()
+            .email({ message: '이메일을 올바르게 입력해 주세요.' }),
+
+        password: z
+            .string()
+            .min(8, { message: '8자리 이상 입력해 주세요.' })
+            .max(15, { message: '15자리 이하 입력해 주세요.' })
+            .regex(passwordRegex, {
+                message:
+                    '영문, 숫자, 특수문자(~!@#$%^&*)를 모두 조합해 주세요.',
+            }),
+
+        passwordCheck: z
+            .string()
+            .nonempty({ message: '비밀번호를 재입력해 주세요.' }),
+
+        phone: z
+            .string()
+            .length(11, { message: '핸드폰 번호는 11자리여야 합니다.' })
+            .regex(/^010/, {
+                message: "핸드폰 번호는 '010'으로 시작해야 합니다.",
+            })
+            .refine(value => !isNaN(Number(value)), {
+                message: '핸드폰 번호는 숫자 형식이어야 합니다.',
+            }),
+
+        certificationCode: z.string().min(2, {
+            message: '아직 구현되지 않았습니다.',
+        }),
+    })
+
+    .refine(data => data.password === data.passwordCheck, {
+        path: ['passwordCheck'],
+        message: '비밀번호가 일치하지 않습니다.',
+    });
 
 export default function Signup() {
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -55,13 +82,8 @@ export default function Signup() {
     //& 수정 필요 (toast)
     function onSubmit(data: z.infer<typeof FormSchema>) {
         toast({
-            //   title: `로그인 성공!
-            // 반갑습니다 000님`,
-            description: (
-                <pre className='mt-2 w-[340px] rounded-md bg-primary p-4'>
-                    반갑다능
-                </pre>
-            ),
+            title: `로그인 성공!
+            반갑습니다 000님`,
         });
     }
 
@@ -90,13 +112,13 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='email'
                                             placeholder='이름을 입력해주세요'
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage className='--destructive' />
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
@@ -110,13 +132,13 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='email'
                                             placeholder='이메일을 입력해주세요'
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage className='--destructive' />
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
@@ -130,7 +152,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='password'
                                             placeholder='비밀번호를 입력해주세요'
                                             {...field}
@@ -150,7 +172,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='password'
                                             placeholder='비밀번호를 한번 더 입력해주세요'
                                             {...field}
@@ -174,8 +196,8 @@ export default function Signup() {
                                         <div className='relative'>
                                             <Input
                                                 id='phone'
-                                                className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground mr-28'
-                                                type='password'
+                                                className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground mr-28'
+                                                type='text'
                                                 placeholder='휴대폰 번호를 입력해주세요'
                                                 {...field}
                                             />
@@ -203,7 +225,7 @@ export default function Signup() {
                                     </FormLabel>
                                     <FormControl>
                                         <Input
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='password'
                                             placeholder='인증번호를 입력해주세요'
                                             {...field}

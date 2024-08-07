@@ -27,7 +27,7 @@ export default function BabyGender() {
             <article>
                 <div className='flex items-center mt-[156px] gap-8'>
                     <Button
-                        className={`text-txt mx-auto hover:bg-primary-foreground active:scale-95 transition-transform duration-150 ${selectedGender === '남자' ? 'bg-primary-foreground' : ''}`}
+                        className={`text-txt mx-auto hover:bg-primary-foreground ${selectedGender === '남자' ? 'bg-primary-foreground' : ''}`}
                         type='button'
                         variant={'outline'}
                         size={'md'}
@@ -36,7 +36,7 @@ export default function BabyGender() {
                         남자
                     </Button>
                     <Button
-                        className={`text-txt mx-auto hover:bg-primary-foreground active:scale-95 transition-transform duration-150 ${selectedGender === '여자' ? 'bg-primary-foreground' : ''}`}
+                        className={`text-txt mx-auto hover:bg-primary-foreground ${selectedGender === '여자' ? 'bg-primary-foreground' : ''}`}
                         type='button'
                         variant={'outline'}
                         size={'md'}
@@ -48,7 +48,7 @@ export default function BabyGender() {
             </article>
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0 active:scale-95 transition-transform duration-150'
+                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
                 variant={'default'}>
                 다음
             </Button>

@@ -10,7 +10,6 @@ import BabyName from './BabyName';
 
 export default function Babyinfo() {
     return (
-        //# 원래의 컴포넌트
         // <BabyName />
         // <BabyMonth />
         // <BabyBirth />
