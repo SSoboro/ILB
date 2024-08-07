@@ -28,8 +28,8 @@ export default function MyPage() {
             </div>
             <ChartCard />
             <DeliveryCard />
-            <LinkCard title={'내정보 수정'} link={'profileupdate'} />
-            <LinkCard title={'구독 상품 조회'} link={'orderlist'} />
+            <LinkCard title={'내정보 수정'} link={'/mypage/editprofile'} />
+            <LinkCard title={'구독 상품 조회'} link={'/mypage/subscribe'} />
         </section>
     );
 }

@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import ItemList from './ItemList';
+import SubItemList from './SubItemList';
 
-export default function OrderList() {
+export default function Subscribe() {
     return (
         <section>
             <Image
@@ -12,9 +12,6 @@ export default function OrderList() {
                 className='mx-auto mb-2'
             />
             <h1 className='mb-7 font-bold text-center'>구독 상품 조회</h1>
-            <p className='font-normal mb-7'>
-                이번 달에는 이 상품들을 받으실 수 있어요!
-            </p>
             <div className='pl-3 py-4 mb-7 bg-[#FFEBEC] rounded-3xl'>
                 <div className='mb-2'>
                     <Image
@@ -36,9 +33,7 @@ export default function OrderList() {
                         alt='feetIcon'
                         className='inline mr-2'
                     />
-                    <span className='text-sm'>
-                        엄마, 아빠의 목소리를 인식해요.
-                    </span>
+                    <span className='text-sm'>시각과 청각이 발달해요.</span>
                 </div>
                 <div className='mb-2'>
                     <Image
@@ -49,7 +44,7 @@ export default function OrderList() {
                         className='inline mr-2'
                     />
                     <span className='text-sm'>
-                        엄마, 아빠의 목소리를 인식해요.
+                        물체에 손을 뻗고 입으로 가져가요.
                     </span>
                 </div>
                 <div className='mb-2'>
@@ -65,7 +60,7 @@ export default function OrderList() {
                     </span>
                 </div>
             </div>
-            <ItemList />
+            <SubItemList />
         </section>
     );
 }
