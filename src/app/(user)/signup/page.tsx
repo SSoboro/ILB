@@ -22,44 +22,17 @@ const passwordRegex =
     /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$&*?!%])[A-Za-z\d!@$%&*?]{8,15}$/;
 
 //& 수정 필요 (zod) : destructive 글로벌 css 넣어주면 됨
-const FormSchema = z.object({
-    name: z
-        .string()
-        .min(2, { message: '2글자 이상 입력해 주세요.' })
-        .max(10, { message: '10글자 이하 입력해 주세요.' }),
-
-    email: z.string().email({ message: '이메일을 올바르게 입력해 주세요.' }),
-
-    password: z
-        .string()
-        .min(8, { message: '8자리 이상 입력해 주세요.' })
-        .max(15, { message: '15자리 이하 입력해 주세요.' })
-        .regex(passwordRegex, {
-            message: '영문, 숫자, 특수문자(~!@#$%^&*)를 모두 조합해 주세요.',
-        }),
-
-    passwordCheck: z
-        .string()
-        .nonempty({ message: '비밀번호를 재입력해 주세요.' }),
-
-    phone: z
-        .string()
-        .length(11, { message: '핸드폰 번호는 11자리여야 합니다.' })
-        .regex(/^010/, { message: "핸드폰 번호는 '010'으로 시작해야 합니다." })
-        .refine(value => !isNaN(Number(value)), {
-            message: '핸드폰 번호는 숫자 형식이어야 합니다.',
-        }),
-
-    certificationCode: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
-});
-
-const userSchema = z
+const FormSchema = z
     .object({
+        name: z
+            .string()
+            .min(2, { message: '2글자 이상 입력해 주세요.' })
+            .max(10, { message: '10글자 이하 입력해 주세요.' }),
+
         email: z
             .string()
             .email({ message: '이메일을 올바르게 입력해 주세요.' }),
+
         password: z
             .string()
             .min(8, { message: '8자리 이상 입력해 주세요.' })
@@ -68,14 +41,28 @@ const userSchema = z
                 message:
                     '영문, 숫자, 특수문자(~!@#$%^&*)를 모두 조합해 주세요.',
             }),
-        confirmPassword: z
+
+        passwordCheck: z
             .string()
             .nonempty({ message: '비밀번호를 재입력해 주세요.' }),
-        sex: z.string().min(1, { message: '성별을 선택해 주세요.' }),
-        terms: z.boolean().default(false),
+
+        phone: z
+            .string()
+            .length(11, { message: '핸드폰 번호는 11자리여야 합니다.' })
+            .regex(/^010/, {
+                message: "핸드폰 번호는 '010'으로 시작해야 합니다.",
+            })
+            .refine(value => !isNaN(Number(value)), {
+                message: '핸드폰 번호는 숫자 형식이어야 합니다.',
+            }),
+
+        certificationCode: z.string().min(2, {
+            message: '아직 구현되지 않았습니다.',
+        }),
     })
-    .refine(data => data.password === data.confirmPassword, {
-        path: ['confirmPassword'],
+
+    .refine(data => data.password === data.passwordCheck, {
+        path: ['passwordCheck'],
         message: '비밀번호가 일치하지 않습니다.',
     });
 
@@ -136,7 +123,7 @@ export default function Signup() {
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage className='--destructive' />
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
@@ -156,7 +143,7 @@ export default function Signup() {
                                             {...field}
                                         />
                                     </FormControl>
-                                    <FormMessage className='--destructive' />
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
