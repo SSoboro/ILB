@@ -14,7 +14,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={100}
                         height={100}
-                        src={'/certification/no.svg'}
+                        src={'/icon/icon_ban.svg'}
                         alt='원산지 관리 인증 마크'
                     />
                     <p className='font-medium mt-[8px]'>원산지 관리</p>
@@ -27,7 +27,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={100}
                         height={100}
-                        src={'/certification/safe-certification.svg'}
+                        src={'/icon/icon_safety.svg'}
                         alt='안전 인증 마크'
                     />
                     <p className='font-medium mt-[8px]'>안전 인증</p>
@@ -40,7 +40,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={100}
                         height={100}
-                        src={'/certification/Non-GMO.svg'}
+                        src={'/icon/icon_gmo.svg'}
                         alt='안전한 원료 사용 인증 마크'
                     />
                     <p className='font-medium mt-[8px]'>Non-GMO</p>
@@ -53,7 +53,7 @@ export default function ProductCertification() {
                         className='text-center'
                         width={100}
                         height={100}
-                        src={'/certification/tree-package.svg'}
+                        src={'/icon/icon_eco.svg'}
                         alt='친환경 패키징 인증 마크'
                     />
                     <p className='font-medium mt-[8px]'>친환경 포장</p>
