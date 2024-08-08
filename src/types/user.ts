@@ -26,7 +26,8 @@ export type UserForm = {
     type: 'user' | 'seller';
     name: string;
     email: string;
-    password: string;
     attach?: string | string[];
     profileImage?: string;
+    password: string;
+    // certificationCode: string;
 };
