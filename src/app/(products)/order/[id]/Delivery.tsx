@@ -167,12 +167,12 @@ export default function DeliveryInfo() {
                                 </FormItem>
                             )}
                         />
-                        <Button
+                        {/* <Button
                             type='submit'
                             className='font-notoSansKr mt-[133px]'
                             variant={'default'}>
                             수정하기
-                        </Button>
+                        </Button> */}
                     </form>
                 </Form>
                 <Toaster />

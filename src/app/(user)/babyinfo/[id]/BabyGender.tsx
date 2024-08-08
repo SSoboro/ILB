@@ -12,11 +12,11 @@ export default function BabyGender() {
 
     return (
         <>
-            <h1 className='text-lg text-center font-medium'>
+            <h1 className='text-lg text-center font-medium mb-40'>
                 아이의 성별을 알려주세요!
             </h1>
-            <article>
-                <div className='flex items-center mt-[156px] gap-8'>
+            <article className='mb-60'>
+                <div className='flex items-center gap-8'>
                     <Button
                         className={`text-txt mx-auto hover:bg-primary-foreground ${selectedGender === '남자' ? 'bg-primary-foreground' : ''}`}
                         type='button'

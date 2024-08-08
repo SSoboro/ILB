@@ -7,7 +7,7 @@ export default function BabyName() {
             <h1 className='text-lg text-center font-medium'>
                 가입을 축하드려요!
             </h1>
-            <p className='text-lg text-center font-medium mt-5 mb-[105px]'>
+            <p className='text-lg text-center font-medium mt-5 mb-24'>
                 아이의 닉네임을 입력해주세요
             </p>
             <Label
@@ -17,7 +17,7 @@ export default function BabyName() {
             </Label>
             <Input
                 id='babyNickname'
-                className='border-0 border-b-[1px] rounded-none p-[5px] text-xl border-txt-foreground mr-28 mt-6'
+                className='border-0 border-b-[1px] rounded-none p-[5px] text-xl border-txt-foreground mr-28 mt-6 mb-60'
                 type='text'
                 placeholder='닉네임을 입력해주세요'
             />

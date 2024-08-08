@@ -13,7 +13,7 @@ const dummyMonth = [
     '19 ~ 24개월',
 ];
 
-export default function BabyMonth() {
+export default function SelectMonth() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
 
     const buttonClicked = (index: number) => {
@@ -23,12 +23,9 @@ export default function BabyMonth() {
     return (
         <>
             <h1 className='text-lg text-center font-medium'>
-                아이의 현재 나이를 알려주세요!
+                받고 싶은 개월 수를 선택해주세요
             </h1>
-            <p className='text-lg text-center font-medium mb-[105px]'>
-                (몇 개월인가요?)
-            </p>
-            <article className='grid grid-cols-2 gap-y-[30px] justify-center items-center gap-x-[43px] px-10 mb-28'>
+            <article className='grid grid-cols-2 gap-y-[30px] justify-center items-center gap-x-[43px] px-10'>
                 {dummyMonth.map((month, index) => (
                     <Button
                         className={`text-txt mx-auto leading-5 h-11 hover:bg-primary-foreground ${selectedIndex === index ? 'bg-primary-foreground' : ''}`}

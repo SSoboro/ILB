@@ -21,12 +21,12 @@ export default function CompletePage() {
                     </Link>
                     <Link
                         className='flex items-center bg-primary-foreground justify-center w-40 h-default font-medium rounded-default'
-                        href={'#'}>
+                        href={'/mypage/subscribe'}>
                         구독상품 보러가기
                     </Link>
                 </div>
                 <div className='mt-10 relative w-[375px] bg-[#F7EFEF] h-[16px]'></div>
-                <article>
+                <article className='w-full'>
                     <h2 className='my-[18px] font-bold text-lg'>배송정보</h2>
                     <div className='relative w-[375px] bg-[#F7EFEF] h-[1px]'></div>
 
@@ -47,7 +47,7 @@ export default function CompletePage() {
                 </article>
                 <div className='mt-10 relative w-[375px] bg-[#F7EFEF] h-[16px]'></div>
 
-                <article className='pb-[60px]'>
+                <article className='pb-[60px] w-full'>
                     <h2 className='my-[18px] font-bold text-lg'>결제정보</h2>
                     <div className='relative w-[375px] bg-[#F7EFEF] h-[1px]'></div>
                     <div className='flex flex-col gap-3.5 mt-10'>

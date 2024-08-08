@@ -1,9 +1,18 @@
+import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
 
-export default function BabyBody() {
+export default function UpdateBodyInfo() {
     return (
-        <>
+        <section>
+            <Image
+                src={'/logo_M.svg'}
+                alt='ILB'
+                width={60}
+                height={60}
+                className='mb-[18px] mx-auto'
+            />
             <h1 className='text-lg text-center font-medium mb-40'>
                 아이의 몸무게와 키를 알려주세요!
             </h1>
@@ -31,6 +40,12 @@ export default function BabyBody() {
                     </Label>
                 </article>
             </div>
-        </>
+            <Button
+                type='button'
+                className='font-notoSansKr my-[60px] box-border bottom-0'
+                variant={'default'}>
+                저장하기
+            </Button>
+        </section>
     );
 }

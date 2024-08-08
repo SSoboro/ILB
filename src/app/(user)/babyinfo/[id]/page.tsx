@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import BabyMonth from './BabyMonth';
 import BabyBirth from './BabyBirth';
@@ -21,7 +24,23 @@ const pageComponent: PageComponent[] = [
 ];
 
 export default function Babyinfo({ params }: { params: { id: string } }) {
-    const content = pageComponent.find(page => page.id === params.id);
+    const paramsNum = parseInt(params.id);
+    const [pageNum, setPageNum] = useState(paramsNum + 1 || 1);
+    const route = useRouter();
+
+    const handleNextPage = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        let nextPage = pageNum + 1;
+
+        if (params.id === '5') {
+            route.push('/login');
+        } else {
+            setPageNum(nextPage);
+            route.push(`/babyinfo/${pageNum}`);
+        }
+    };
+
+    const content = pageComponent.find(page => parseInt(page.id) === paramsNum);
 
     return (
         <section>
@@ -35,8 +54,9 @@ export default function Babyinfo({ params }: { params: { id: string } }) {
             {content?.component}
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
-                variant={'default'}>
+                className='font-notoSansKr mb-[60px] box-border bottom-0'
+                variant={'default'}
+                onClick={handleNextPage}>
                 다음
             </Button>
         </section>
