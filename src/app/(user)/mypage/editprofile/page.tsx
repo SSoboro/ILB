@@ -52,7 +52,7 @@ export default function EditProfile() {
         },
     });
 
-    //& 수정 필요 (toast)
+    //& 수정 필요 (toast) & 수정하기 버튼 클릭 이벤트
     function onSubmit(data: z.infer<typeof FormSchema>) {
         toast({
             //   title: `로그인 성공!
@@ -185,7 +185,7 @@ export default function EditProfile() {
 
                         <Button
                             type='submit'
-                            className='font-notoSansKr mt-[60px] box-border'
+                            className='font-notoSansKr mt-[60px] mb-[60px] box-border'
                             variant={'default'}>
                             수정하기
                         </Button>

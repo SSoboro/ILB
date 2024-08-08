@@ -116,7 +116,7 @@ export default function Login() {
             </Form>
             <p className='text-txt-foreground text-center mt-[18px] text-xs'>
                 아직 회원이 아니신가요?{' '}
-                <Link href={'/'} className='text-txt font-normal'>
+                <Link href={'/signup'} className='text-txt font-normal'>
                     회원가입
                 </Link>
             </p>
