@@ -18,14 +18,20 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-//& 수정 필요 (zod) : destructive 글로벌 css 넣어주면 됨
+// 비밀번호 조건 정규표현식
+const passwordRegex =
+    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$&*?!%])[A-Za-z\d!@$%&*?]{8,15}$/;
+
 const FormSchema = z.object({
-    email: z.string().min(2, {
-        message: '올바른 이메일 형식이 아닙니다.',
-    }),
-    password: z.string().min(2, {
-        message: '비밀번호 제대로 가자',
-    }),
+    email: z.string().email({ message: '이메일을 올바르게 입력해 주세요.' }),
+
+    password: z
+        .string()
+        .min(8, { message: '8자리 이상 입력해 주세요.' })
+        .max(15, { message: '15자리 이하 입력해 주세요.' })
+        .regex(passwordRegex, {
+            message: '영문, 숫자, 특수문자(~!@#$%^&*)를 모두 조합해 주세요.',
+        }),
 });
 
 export default function Login() {
@@ -37,11 +43,11 @@ export default function Login() {
         },
     });
 
-    //& 수정 필요 (toast)
+    //& FIXME : toast css 모바일 위치 수정
     function onSubmit(data: z.infer<typeof FormSchema>) {
+        //@ TODO : 로그인 처리
         toast({
-            title: `로그인 성공!
-					반갑습니다 000님`,
+            title: `로그인 성공!`,
             description: (
                 <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
                     <code className='text-white'>
@@ -69,12 +75,10 @@ export default function Login() {
                         name='email'
                         render={({ field }) => (
                             <FormItem className='mb-8'>
-                                <FormLabel className='text-txt-foreground'>
-                                    이메일
-                                </FormLabel>
+                                <FormLabel>이메일</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                        className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                         type='email'
                                         placeholder='이메일을 입력해주세요'
                                         {...field}
@@ -89,12 +93,10 @@ export default function Login() {
                         name='password'
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className='text-txt-foreground'>
-                                    비밀번호
-                                </FormLabel>
+                                <FormLabel>비밀번호</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='border-0 border-b-[1px] rounded-none p-[5px] text-[12px] border-txt-foreground'
+                                        className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                         type='password'
                                         placeholder='비밀번호를 입력해주세요'
                                         {...field}
