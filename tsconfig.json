@@ -27,7 +27,8 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "src/app/(user)/mypage/delivery"
+        "src/app/(user)/mypage/delivery",
+        "src/app/(user)/mypage/updatebody"
     ],
     "exclude": ["node_modules"]
 }

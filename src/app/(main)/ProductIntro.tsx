@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '../../components/ui/button';
 
 export default function ProductIntro() {
@@ -16,13 +17,15 @@ export default function ProductIntro() {
                 height={384}
                 alt='moble sample image'
             />
-            <Button
-                variant={'default'}
-                size={'lg'}
-                radius={'lg'}
-                fontSize={'lg'}>
-                상품 보러가기
-            </Button>
+            <Link href={'/list'}>
+                <Button
+                    variant={'default'}
+                    size={'lg'}
+                    radius={'lg'}
+                    fontSize={'lg'}>
+                    상품 보러가기
+                </Button>
+            </Link>
         </article>
     );
 }

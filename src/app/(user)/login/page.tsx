@@ -12,6 +12,10 @@ import {
 import { Input } from '@/components/ui/input';
 import { Toaster } from '@/components/ui/toaster';
 import { toast } from '@/components/ui/use-toast';
+import {
+    signInWithCredentials,
+    signInWithGoogle,
+} from '@/data/actions/authAction';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,7 +24,7 @@ import { z } from 'zod';
 
 // 비밀번호 조건 정규표현식
 const passwordRegex =
-    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$&*?!%])[A-Za-z\d!@$%&*?]{8,15}$/;
+    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$#&*?!%])[A-Za-z\d!@$#%&*?]{8,15}$/;
 
 const FormSchema = z.object({
     email: z.string().email({ message: '이메일을 올바르게 입력해 주세요.' }),
@@ -44,7 +48,12 @@ export default function Login() {
     });
 
     //& FIXME : toast css 모바일 위치 수정
-    function onSubmit(data: z.infer<typeof FormSchema>) {
+    async function onSubmit(data: z.infer<typeof FormSchema>) {
+        const formData = new FormData();
+        formData.append('email', data.email);
+        formData.append('password', data.password);
+        await signInWithCredentials(formData);
+
         //@ TODO : 로그인 처리
         toast({
             title: `로그인 성공!`,
@@ -55,7 +64,7 @@ export default function Login() {
                     </code>
                 </pre>
             ),
-            duration: 100, // Toast의 delay를 3000ms로 설정
+            duration: 1500, // Toast의 delay를 3000ms로 설정
         });
     }
 
@@ -116,7 +125,7 @@ export default function Login() {
             </Form>
             <p className='text-txt-foreground text-center mt-[18px] text-xs'>
                 아직 회원이 아니신가요?{' '}
-                <Link href={'/'} className='text-txt font-normal'>
+                <Link href={'/signup'} className='text-txt font-normal'>
                     회원가입
                 </Link>
             </p>
@@ -144,14 +153,14 @@ export default function Login() {
                         height={60}
                     />
                 </Link>
-                <Link href={'/'}>
+                <Button formAction={signInWithGoogle}>
                     <Image
                         src='/icon/icon_google.svg'
                         alt='구글 로그인'
                         width={60}
                         height={60}
                     />
-                </Link>
+                </Button>
             </div>
             <Toaster />
         </section>

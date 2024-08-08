@@ -1,9 +1,9 @@
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
-export default function BabyBody() {
+export default function UpdateBodyInfo() {
     return (
         <section>
             <Image
@@ -14,9 +14,9 @@ export default function BabyBody() {
                 className='mb-[18px] mx-auto'
             />
             <h1 className='text-lg text-center font-medium mb-40'>
-                아이의 체중과 몸무게를 알려주세요!
+                아이의 몸무게와 키를 알려주세요!
             </h1>
-            <div className='flex justify-between gap-6'>
+            <div className='flex justify-between gap-6 mb-60'>
                 <article className='flex items-end'>
                     <Input
                         id='babyHeight'
@@ -42,9 +42,9 @@ export default function BabyBody() {
             </div>
             <Button
                 type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
+                className='font-notoSansKr my-[60px] box-border bottom-0'
                 variant={'default'}>
-                다음
+                저장하기
             </Button>
         </section>
     );
