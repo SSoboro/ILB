@@ -6,6 +6,10 @@
 .pnp.js
 .yarn/install-state.gz
 
+# backend node modules
+*node_modules
+.env*
+
 # testing
 /coverage
 
