@@ -1,8 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import Image from 'next/image';
 import { useState } from 'react';
 
 export default function BabyGender() {
@@ -13,14 +11,7 @@ export default function BabyGender() {
     };
 
     return (
-        <section>
-            <Image
-                src={'/logo_M.svg'}
-                alt='ILB'
-                width={60}
-                height={60}
-                className='mb-[18px] mx-auto'
-            />
+        <>
             <h1 className='text-lg text-center font-medium'>
                 아이의 성별을 알려주세요!
             </h1>
@@ -46,12 +37,6 @@ export default function BabyGender() {
                     </Button>
                 </div>
             </article>
-            <Button
-                type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
-                variant={'default'}>
-                다음
-            </Button>
-        </section>
+        </>
     );
 }

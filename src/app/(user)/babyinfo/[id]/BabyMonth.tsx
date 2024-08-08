@@ -1,9 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import Image from 'next/image';
 import { useState } from 'react';
 
 const dummyMonth = [
@@ -24,14 +21,7 @@ export default function BabyMonth() {
     };
 
     return (
-        <section>
-            <Image
-                src={'/logo_M.svg'}
-                alt='ILB'
-                width={60}
-                height={60}
-                className='mb-[18px] mx-auto'
-            />
+        <>
             <h1 className='text-lg text-center font-medium'>
                 아이의 현재 나이를 알려주세요!
             </h1>
@@ -53,12 +43,6 @@ export default function BabyMonth() {
                     </Button>
                 ))}
             </article>
-            <Button
-                type='button'
-                className='font-notoSansKr fixed my-[60px] box-border bottom-0'
-                variant={'default'}>
-                다음
-            </Button>
-        </section>
+        </>
     );
 }
