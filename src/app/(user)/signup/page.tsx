@@ -12,6 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Toaster } from '@/components/ui/toaster';
 import { toast } from '@/components/ui/use-toast';
+import { signup } from '@/data/actions/userAction';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
@@ -19,7 +20,7 @@ import { z } from 'zod';
 
 // 비밀번호 조건 정규표현식
 const passwordRegex =
-    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$&*?!%])[A-Za-z\d!@$%&*?]{8,15}$/;
+    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$#&*?!%])[A-Za-z\d!@$#%&*?]{8,15}$/;
 
 // zod Form 스키마 (유효성 검사 조건)
 const FormSchema = z
@@ -56,9 +57,12 @@ const FormSchema = z
                 message: '핸드폰 번호는 숫자 형식이어야 합니다.',
             }),
 
-        certificationCode: z.string().min(2, {
+        /* 인증번호 
+				certificationCode: z.string().min(2, {
             message: '아직 구현되지 않았습니다.',
-        }),
+        }), */
+
+        type: z.literal('user'),
     })
 
     .refine(data => data.password === data.passwordCheck, {
@@ -76,23 +80,39 @@ export default function Signup() {
             password: '',
             passwordCheck: '',
             phone: '',
-            certificationCode: '',
+            type: 'user',
+            // certificationCode: '',
         },
     });
 
     //& FIXME : toast 모바일 상에서 위치 수정
-    function onSubmit(data: z.infer<typeof FormSchema>) {
-        toast({
-            title: `회원가입 성공!
-            반갑습니다 ${data.name}님`,
-            description: (
-                <pre className='mt-2 w-[340px] rounded-md bg-primary p-4'>
-                    <code>{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            ),
-        });
+    async function onSubmit(formData: z.infer<typeof FormSchema>) {
+        // passwordCheck 데이터를 제외하기 위한 객체복사
+        const { passwordCheck, ...filteredData } = formData;
 
-        //@ TODO : 데이터를 전송하는 부분
+        const resData = await signup(filteredData);
+
+        if (resData.ok) {
+            toast({
+                title: `회원가입 성공!
+            		반갑습니다 ${formData.name}님`,
+                duration: 1500,
+                // description: (
+                //     <pre className='mt-2 w-[340px] rounded-md bg-primary p-4'>
+                //         <code>{JSON.stringify(formData, null, 2)}</code>
+                //     </pre>
+                // ),
+            });
+        } else {
+            // API 서버의 에러 메시지 처리
+            if ('errors' in resData) {
+                resData.errors.forEach((error: any) =>
+                    form.setError(error.path, { message: error.msg }),
+                );
+            } else if (resData.message) {
+                alert(resData.message);
+            }
+        }
     }
 
     return (
@@ -191,12 +211,12 @@ export default function Signup() {
                                     <div className='relative'>
                                         <Input
                                             id='phone'
-                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground mr-28'
+                                            className='border-0 border-b-[1px] rounded-none p-[5px] border-txt-foreground'
                                             type='text'
                                             placeholder='휴대폰 번호를 입력해주세요'
                                             {...field}
                                         />
-                                        <Button
+                                        {/* <Button
                                             //@ TODO : 버튼 클릭시 인증번호 요청
                                             type='button'
                                             className='font-notoSansKr absolute right-0 bottom-[0.0625rem]'
@@ -204,14 +224,15 @@ export default function Signup() {
                                             fontSize={'sm'}
                                             fontWeight={'sm'}>
                                             인증번호 요청
-                                        </Button>
+                                        </Button> */}
                                     </div>
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    <FormField
+                    {/* <FormField
+                    //@ TODO : 인증코드 입력창
                         control={form.control}
                         name='certificationCode'
                         render={({ field }) => (
@@ -230,7 +251,7 @@ export default function Signup() {
                                 <FormMessage />
                             </FormItem>
                         )}
-                    />
+                    /> */}
                     <Button
                         type='submit'
                         className='font-notoSansKr my-[60px] box-border'

@@ -55,6 +55,7 @@ export default function Login() {
                     </code>
                 </pre>
             ),
+            duration: 100, // Toast의 delay를 3000ms로 설정
         });
     }
 
@@ -108,8 +109,7 @@ export default function Login() {
                     />
                     <Button
                         type='submit'
-                        className='font-notoSansKr mt-[60px] box-border'
-                        variant={'default'}>
+                        className='font-notoSansKr mt-[60px] box-border'>
                         로그인
                     </Button>
                 </form>
