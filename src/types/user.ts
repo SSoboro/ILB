@@ -31,3 +31,8 @@ export type UserForm = {
     password: string;
     // certificationCode: string;
 };
+
+export type SellerData = Pick<
+    UserData,
+    '_id' | 'email' | 'name' | 'profileImage'
+>;

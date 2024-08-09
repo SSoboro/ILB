@@ -8,8 +8,8 @@ import { ChevronDown } from 'lucide-react';
 import MonthAvatar from './MonthAvatar';
 import ProductItem from '@/components/ProductItem';
 
-import { Product } from '../../../../types';
 import ProductCardText from './ProductCardText';
+import { Product } from '@/types';
 type Props = {
     stepInfo: {
         step: number;

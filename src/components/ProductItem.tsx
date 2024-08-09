@@ -1,5 +1,5 @@
+import { Product } from '@/types';
 import Image from 'next/image';
-import { Product } from '../../types';
 
 type Props = {
     item: Product;

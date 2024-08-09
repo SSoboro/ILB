@@ -1,3 +1,5 @@
+import { SellerData } from './user';
+
 export interface Product {
     _id: number;
     step: number;
@@ -7,7 +9,7 @@ export interface Product {
     show: boolean;
     quantity: number;
     buyQuantity: number;
-    // seller: User;
+    seller: SellerData;
     replies: number;
     bookmarks: number;
     options: number;
