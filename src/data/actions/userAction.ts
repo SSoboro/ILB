@@ -15,7 +15,6 @@ export async function signup(formData: UserForm) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'client-id': '05-ILB',
         },
         body: JSON.stringify(formData),
     });
