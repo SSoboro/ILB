@@ -15,6 +15,7 @@ import { toast } from '@/components/ui/use-toast';
 import {
     signInWithCredentials,
     signInWithGoogle,
+    signInWithKakao,
     signInWithNaver,
 } from '@/data/actions/authAction';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -123,51 +124,73 @@ export default function Login() {
                         로그인
                     </Button>
                 </form>
-
-                <p className='text-txt-foreground text-center mt-[18px] text-xs'>
-                    아직 회원이 아니신가요?{' '}
-                    <Link href={'/signup'} className='text-txt font-normal'>
-                        회원가입
-                    </Link>
-                </p>
-                <div className='flex items-center mb-10 mt-[60px]'>
-                    <p className='flex grow h-[1px] bg-txt-foreground' />
-                    <span className='px-[13px] text-xs font-light text-txt-foreground'>
-                        소셜 로그인
-                    </span>
-                    <p className='flex grow h-[1px] bg-txt-foreground' />
-                </div>
-                <div className='flex justify-between px-6 flex-col'>
-                    <Link href={'/'}>
-                        <Image
-                            src='/icon/icon_kakao.svg'
-                            alt='카카오톡 로그인'
-                            width={60}
-                            height={60}
-                        />
-                    </Link>
-                    <form action={signInWithCredentials}>
-                        <Button type='submit' formAction={signInWithNaver}>
-                            네이버
-                            {/* <Image
-													src='/icon/icon_naver.svg'
-													alt='네이버 로그인'
-													width={60}
-													height={60}
-											/> */}
-                        </Button>
-                        <Button formAction={signInWithGoogle}>
-                            구글
-                            {/* <Image
-													src='/icon/icon_google.svg'
-													alt='구글 로그인'
-													width={60}
-													height={60}
-											/> */}
-                        </Button>
-                    </form>
-                </div>
             </Form>
+            <p className='text-txt-foreground text-center mt-[18px] text-xs'>
+                아직 회원이 아니신가요?{' '}
+                <Link href={'/signup'} className='text-txt font-normal'>
+                    회원가입
+                </Link>
+            </p>
+            <div className='flex items-center mb-10 mt-[60px]'>
+                <p className='flex grow h-[1px] bg-txt-foreground' />
+                <span className='px-[13px] text-xs font-light text-txt-foreground'>
+                    소셜 로그인
+                </span>
+                <p className='flex grow h-[1px] bg-txt-foreground' />
+            </div>
+            <form
+                action={signInWithCredentials}
+                className='flex justify-between px-6 mb-14'>
+                <Button
+                    type='submit'
+                    className='bg-white'
+                    size={'xs'}
+                    formAction={signInWithKakao}>
+                    <Image
+                        src='/icon/icon_kakao.svg'
+                        alt='카카오톡 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Button>
+                <Button
+                    type='submit'
+                    className='bg-white'
+                    size={'xs'}
+                    formAction={signInWithGoogle}>
+                    <Image
+                        src='/icon/icon_google.svg'
+                        alt='구글 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Button>
+                <Button
+                    type='submit'
+                    className='bg-white'
+                    size={'xs'}
+                    formAction={signInWithNaver}>
+                    <Image
+                        src='/icon/icon_naver.svg'
+                        alt='네이버 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Button>
+                <Button
+                    type='submit'
+                    className='bg-white'
+                    size={'xs'}
+                    formAction={signInWithNaver}>
+                    <Image
+                        src='/icon/icon_naver.svg'
+                        alt='네이버 로그인'
+                        width={60}
+                        height={60}
+                    />
+                </Button>
+            </form>
+
             <Toaster />
         </section>
     );

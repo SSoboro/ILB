@@ -29,7 +29,9 @@ export async function signInWithGoogle(formData: FormData) {
 }
 
 export async function signInWithNaver(formData: FormData) {
-    console.log('호출전');
     await signIn('naver', { redirectTo: '/' });
-    console.log('호출후');
+}
+
+export async function signInWithKakao(formData: FormData) {
+    await signIn('kakao', { redirectTo: '/' });
 }
