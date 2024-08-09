@@ -53,8 +53,8 @@ export default function ChartCard() {
                 <span className='font-bold'>우리 아이 성장 그래프</span>
                 <Link
                     className='text-10 font-medium text-txt-foreground leading-3'
-                    href={''}>
-                    아이 정보 수정하기
+                    href={'/mypage/updatebody'}>
+                    아이 신체 정보 입력하기
                 </Link>
             </div>
             <ChartContainer

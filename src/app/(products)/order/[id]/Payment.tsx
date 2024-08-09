@@ -8,7 +8,7 @@ import { CiBank } from 'react-icons/ci';
 
 type ItemSelect = 'card' | 'account';
 
-export default function PaymentPage() {
+export default function PaymentInfo() {
     const [selectChecked, setSelectChecked] = useState<ItemSelect>('card');
 
     const handleButtonCheck = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -16,7 +16,7 @@ export default function PaymentPage() {
         setSelectChecked(target.id as ItemSelect);
     };
     return (
-        <section>
+        <>
             <h1 className='mt-7 font-bold text-[28px]'>결제정보</h1>
             <div className='flex flex-col gap-3.5 mt-10'>
                 <div className='flex justify-between'>
@@ -64,9 +64,6 @@ export default function PaymentPage() {
                     계좌
                 </Button>
             </div>
-            <Button className='mt-[75px] font-notoSansKr' variant={'default'}>
-                다음
-            </Button>
-        </section>
+        </>
     );
 }

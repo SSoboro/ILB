@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button } from '../../components/ui/button';
 
 export default function ProductTutorial() {
@@ -44,13 +45,15 @@ export default function ProductTutorial() {
                     </div>
                 </div>
             </div>
-            <Button
-                variant={'default'}
-                size={'lg'}
-                radius={'lg'}
-                fontSize={'lg'}>
-                구독하러가기
-            </Button>
+            <Link href={'/order/1'}>
+                <Button
+                    variant={'default'}
+                    size={'lg'}
+                    radius={'lg'}
+                    fontSize={'lg'}>
+                    구독하러가기
+                </Button>
+            </Link>
         </article>
     );
 }
