@@ -2,8 +2,11 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import github from 'next-auth/providers/github';
 import google from 'next-auth/providers/google';
+import NaverProvider from 'next-auth/providers/naver';
+import KakaoProvider from 'next-auth/providers/kakao';
 
 const SERVER = process.env.NEXT_PUBLIC_API_SERVER;
+const CLIENT_ID = process.env.DB_NAME;
 
 // OAuth2.0
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -16,11 +19,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'client-id': `${CLIENT_ID}`,
                     },
                     body: JSON.stringify(credentials),
                 });
 
                 const resJson = await res.json();
+                console.log('resJson', resJson);
                 if (resJson.ok) {
                     const user = resJson.item;
                     console.log(user);
@@ -45,6 +50,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         google({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
+        NaverProvider({
+            clientId: process.env.NAVER_CLIENT_ID,
+            clientSecret: process.env.NAVER_CLIENT_SECRET,
+        }),
+        KakaoProvider({
+            clientId: process.env.KAKAO_CLIENT_ID,
+            clientSecret: process.env.KAKAO_CLIENT_SECRET,
         }),
     ],
     session: {

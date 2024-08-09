@@ -19,6 +19,7 @@ const buttonVariants = cva(
                 lg: 'w-lg h-24',
                 md: 'w-40 h-default',
                 sm: 'w-sm h-12',
+                xs: 'w-[60px] h-[60px]',
             },
             radius: {
                 default: 'rounded-default',
