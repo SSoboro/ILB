@@ -1,8 +1,12 @@
 import Image from 'next/image';
 
-export default function MonthAvatar() {
+type Props = {
+    month: string;
+};
+
+export default function MonthAvatar({ month }: Props) {
     return (
-        <div>
+        <div className='flex flex-col items-center'>
             <div className='relative h-[74px] w-[74px] bg-white rounded-full'>
                 <Image
                     className='absolute top-[5px] left-2.5'
@@ -12,7 +16,7 @@ export default function MonthAvatar() {
                     alt=''
                 />
             </div>
-            <p className='text-sm text-txt-foreground mt-2.5'>아기 개월 수</p>
+            <p className='text-sm text-txt-foreground mt-2.5'>{month}</p>
         </div>
     );
 }
